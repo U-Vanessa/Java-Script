@@ -7,6 +7,8 @@
         <style>
          *{
             box-sizing: border-box;
+            font-family: sans-serif;
+            color: rgb(90, 90, 250);
          }
          body{
             background: rgba(72, 72, 243, 0.425);
@@ -55,19 +57,37 @@
          </style>
 </head>
 <body>
-
-         <div class="form">
-               <h2 align="center">Age Calculator</h2>
-               <p>Date</p>
-               <input type="integer"  placeholder="04">
+      <div class= "form">
+         <h2 align ="center">Age Calculator</h2>
+         <p>Date</p>
+               <input type="number" id="day" required>
                <p>Month</p>
-               <input type="integer" placeholder="February">
+               <input type="number" id="month" required>
                <p>Year</p>
-               <input type="integer"  placeholder="2024"></br>
+               <input type="number" id="year" required></br>
 
-               <button class="btn">Submit</button>
+               <button class="btn" onclick="change()">Submit</button>
+               <span id="output">output</span>
 
-               <h4 align="center">You are now 19 years,11 months and 5 days</h4>
+         <script>
+            function change(){
+               
+               var Day = document.querySelector('#day').value;
+               var Month = document.querySelector('#month').value;
+               var Year = document.querySelector('#year').value;
+               var Day = parseInt(5) - parseInt(Day)
+               var Month = parseInt(2) - parseInt(Month)
+               var Year = parseInt(2024) - parseInt(Year)
+               
+
+            if(Month < 0){
+               Month = Month+12;
+               Year = Year-1;
+            }
+            var outputMessage = "Your age is" + Year + "years" +" " + Month + "month" + " " + Day + "Day"
+               document.querySelector("#output").innerHTML = outputMessage
+            }
+         </script>
          </div>
 </body>
 </html>
